@@ -1,1 +1,55 @@
-<h1>Test</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ICanNeitherConfirmNorDeny</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>ICanNeitherConfirmNorDeny</h1>
+    <p>Threat analysis, tools, and tactics.</p>
+  </header>
+
+  <main>
+    <nav>
+      <h2>Posts</h2>
+      <ul id="post-list"></ul>
+    </nav>
+    <div class="iframe-container">
+      <iframe id="post-frame" src="posts/home.html"></iframe>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 ICanNeitherConfirmNorDeny  |  Stay informed. Stay secure.
+  </footer>
+
+  <script>
+    // List your posts manually in descending order (newest first)
+    const posts = [
+    'home.html',
+    
+  
+    'post1.html',
+
+    ];
+
+    const postList = document.getElementById('post-list');
+    const iframe = document.getElementById('post-frame');
+
+    posts.forEach(filename => {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = '#';
+      a.textContent = filename.replace('.html', '').replace('post', 'Post ').replace('home', 'Home ');
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        iframe.src = 'posts/' + filename;
+      });
+      li.appendChild(a);
+      postList.appendChild(li);
+    });
+  </script>
+</body>
+</html>
